@@ -1,0 +1,98 @@
+[
+  {
+    "productId": "predator-fg",
+    "productName": "Predator Elite Fold-Over Tongue FG",
+    "category": "Football",
+    "retailer": "adidas",
+    "priceEur": 280,
+    "url": "#"
+  },
+  {
+    "productId": "predator-fg",
+    "productName": "Predator Elite Fold-Over Tongue FG",
+    "category": "Football",
+    "retailer": "END.",
+    "priceEur": 295,
+    "url": "#"
+  },
+  {
+    "productId": "predator-fg",
+    "productName": "Predator Elite Fold-Over Tongue FG",
+    "category": "Football",
+    "retailer": "SSENSE",
+    "priceEur": 310,
+    "url": "#"
+  },
+  {
+    "productId": "y3-runner",
+    "productName": "Y-3 Ultraboost 5",
+    "category": "Y-3",
+    "retailer": "adidas",
+    "priceEur": 350,
+    "url": "#"
+  },
+  {
+    "productId": "y3-runner",
+    "productName": "Y-3 Ultraboost 5",
+    "category": "Y-3",
+    "retailer": "Farfetch",
+    "priceEur": 410,
+    "url": "#"
+  },
+  {
+    "productId": "y3-runner",
+    "productName": "Y-3 Ultraboost 5",
+    "category": "Y-3",
+    "retailer": "LN-CC",
+    "priceEur": 395,
+    "url": "#"
+  },
+  {
+    "productId": "samba-wales",
+    "productName": "Samba Wales Bonner Pony",
+    "category": "Collaboration",
+    "retailer": "Farfetch",
+    "priceEur": 420,
+    "url": "#"
+  },
+  {
+    "productId": "samba-wales",
+    "productName": "Samba Wales Bonner Pony",
+    "category": "Collaboration",
+    "retailer": "SSENSE",
+    "priceEur": 398,
+    "url": "#"
+  },
+  {
+    "productId": "samba-wales",
+    "productName": "Samba Wales Bonner Pony",
+    "category": "Collaboration",
+    "retailer": "LN-CC",
+    "priceEur": 435,
+    "url": "#"
+  },
+  {
+    "productId": "terrex-jacket",
+    "productName": "Terrex Xploric Rain.Rdy Jacket",
+    "category": "Outdoor",
+    "retailer": "adidas",
+    "priceEur": 260,
+    "url": "#"
+  },
+  {
+    "productId": "terrex-jacket",
+    "productName": "Terrex Xploric Rain.Rdy Jacket",
+    "category": "Outdoor",
+    "retailer": "END.",
+    "priceEur": 245,
+    "url": "#"
+  },
+  {
+    "productId": "terrex-jacket",
+    "productName": "Terrex Xploric Rain.Rdy Jacket",
+    "category": "Outdoor",
+    "retailer": "Farfetch",
+    "priceEur": 289,
+    "url": "#"
+  }
+]

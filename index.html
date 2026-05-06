@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Cockpit</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Adidas market monitor</p>
+          <h1>Project Cockpit</h1>
+          <p class="intro">
+            Compare premium adidas products across retailers, spot price gaps,
+            and review scrape-driven insights.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="metric">
+            <span class="label">Tracking</span>
+            <strong id="hero-products">0 premium products</strong>
+          </div>
+          <div class="metric">
+            <span class="label">Retailers</span>
+            <strong id="hero-retailers">0 sources</strong>
+          </div>
+          <div class="metric">
+            <span class="label">Best spread</span>
+            <strong id="hero-spread">EUR 0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel panel-wide">
+          <div class="section-head">
+            <div>
+              <p class="section-label">Leaderboard</p>
+              <h2>Most expensive adidas products</h2>
+            </div>
+          </div>
+          <div id="product-grid" class="product-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-head">
+            <div>
+              <p class="section-label">Retailer spread</p>
+              <h2>Current market range</h2>
+            </div>
+          </div>
+          <div id="spread-chart" class="chart-stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-head">
+            <div>
+              <p class="section-label">Scrape signal</p>
+              <h2>LLM reaction queue</h2>
+            </div>
+          </div>
+          <div id="reaction-list" class="reaction-list"></div>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="section-head">
+            <div>
+              <p class="section-label">Offer matrix</p>
+              <h2>Price ranking by product</h2>
+            </div>
+          </div>
+          <div id="comparison-body" class="comparison-list"></div>
+        </section>
+      </main>
+    </div>
+    <script src="./src/mock-data.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
