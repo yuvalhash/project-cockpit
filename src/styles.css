@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --bg: #f5f1e8;
-  --surface: rgba(255, 251, 245, 0.9);
-  --surface-strong: #e8dfd1;
-  --ink: #171512;
-  --muted: #63594c;
-  --accent: #111111;
-  --accent-soft: #d7ff45;
-  --border: #d5c8b5;
-  --shadow: 0 20px 50px rgba(34, 26, 10, 0.1);
+  --bg: #f2f2f0;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-strong: #0d0d0d;
+  --ink: #101010;
+  --muted: #5f6360;
+  --accent: #0d0d0d;
+  --accent-soft: #e7ff39;
+  --border: #d4d7d2;
+  --shadow: 0 18px 42px rgba(16, 16, 16, 0.12);
 }
 
 * {
@@ -19,9 +19,8 @@ body {
   margin: 0;
   font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(215, 255, 69, 0.35), transparent 24%),
-    radial-gradient(circle at right 20%, rgba(0, 0, 0, 0.08), transparent 20%),
-    linear-gradient(180deg, #f7f4ed 0%, var(--bg) 100%);
+    linear-gradient(115deg, transparent 0 56%, rgba(13, 13, 13, 0.08) 56% 58%, transparent 58% 62%, rgba(13, 13, 13, 0.08) 62% 64%, transparent 64% 68%, rgba(13, 13, 13, 0.08) 68% 70%, transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
   color: var(--ink);
 }
 
@@ -32,16 +31,43 @@ body {
 }
 
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
   gap: 24px;
   align-items: stretch;
   margin-bottom: 28px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0 62%, rgba(255, 255, 255, 0.08) 62% 64%, rgba(13, 13, 13, 0.98) 64%),
+    #0d0d0d;
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 28px 28px auto;
+  width: min(34vw, 360px);
+  height: 112px;
+  background:
+    linear-gradient(110deg, transparent 0 11%, #ffffff 11% 18%, transparent 18% 25%, #ffffff 25% 32%, transparent 32% 39%, #ffffff 39% 46%, transparent 46%);
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+.hero-copy,
+.hero-card {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--accent);
+  color: var(--accent-soft);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -58,7 +84,7 @@ h1 {
 .intro {
   max-width: 38rem;
   margin: 16px 0 0;
-  color: var(--muted);
+  color: #d8ddd6;
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -69,19 +95,22 @@ h1 {
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
 }
 
 .hero-card {
   display: grid;
   gap: 14px;
   padding: 18px;
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 .metric {
   padding: 14px;
   border-radius: 8px;
-  background: var(--surface-strong);
+  background: #ffffff;
+  color: var(--ink);
 }
 
 .label {
@@ -98,7 +127,18 @@ h1 {
 }
 
 .panel {
+  position: relative;
+  overflow: hidden;
   padding: 22px;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 10px;
+  background:
+    linear-gradient(180deg, #0d0d0d 0 28%, transparent 28% 36%, #0d0d0d 36% 64%, transparent 64% 72%, #0d0d0d 72% 100%);
 }
 
 .panel-wide {
@@ -124,6 +164,7 @@ h1 {
 h2 {
   margin: 0 0 8px;
   font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -138,21 +179,47 @@ h3 {
 }
 
 .product-card {
+  position: relative;
   display: grid;
   gap: 10px;
   min-height: 420px;
   padding: 18px;
-  border: 1px solid var(--border);
+  border: 1px solid #b8bdb7;
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(232, 223, 209, 0.84));
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 54px;
+  height: 88px;
+  background:
+    linear-gradient(105deg, transparent 0 18%, var(--accent) 18% 31%, transparent 31% 40%, var(--accent) 40% 53%, transparent 53% 62%, var(--accent) 62% 75%, transparent 75%);
+  opacity: 0.12;
+  pointer-events: none;
 }
 
 .product-image-link {
+  position: relative;
   display: block;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 8px;
-  background: #f4efe6;
+  background: #eeeeec;
+  border: 1px solid #e0e3dd;
+}
+
+.product-image-link::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 12px;
+  background:
+    linear-gradient(90deg, var(--accent) 0 30%, transparent 30% 35%, var(--accent) 35% 65%, transparent 65% 70%, var(--accent) 70% 100%);
 }
 
 .product-image {
@@ -190,12 +257,14 @@ td a {
 .product-meta {
   font-size: 0.86rem;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .product-price {
   margin: auto 0 0;
   font-size: 1.3rem;
   font-weight: 700;
+  color: var(--accent);
 }
 
 .offer-rank-list,
@@ -211,7 +280,7 @@ td a {
   gap: 8px;
   align-items: center;
   padding: 8px 0;
-  border-top: 1px solid rgba(213, 200, 181, 0.7);
+  border-top: 1px solid rgba(13, 13, 13, 0.14);
 }
 
 .offer-rank-item a,
@@ -256,7 +325,7 @@ td a {
 .mini-track {
   width: 100%;
   border-radius: 999px;
-  background: #e3dbcf;
+  background: #dfe2dc;
   overflow: hidden;
 }
 
@@ -268,14 +337,17 @@ td a {
 .mini-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #111111, #8e866f);
+  background:
+    linear-gradient(90deg, var(--accent) 0 32%, #ffffff 32% 38%, var(--accent) 38% 68%, #ffffff 68% 74%, var(--accent) 74% 100%);
 }
 
 .reaction-item {
   padding: 16px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.55);
+  background:
+    linear-gradient(90deg, var(--accent-soft) 0 6px, transparent 6px),
+    #ffffff;
 }
 
 .reaction-item h3 {
@@ -289,10 +361,11 @@ td a {
 }
 
 .comparison-card {
+  position: relative;
   padding: 18px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.6);
+  background: #ffffff;
 }
 
 .comparison-header {
@@ -308,7 +381,7 @@ td a {
   height: 88px;
   border-radius: 8px;
   object-fit: cover;
-  background: #f4efe6;
+  background: #eeeeec;
 }
 
 .comparison-kicker {
@@ -331,7 +404,8 @@ td a {
   width: 24px;
   height: 24px;
   border-radius: 999px;
-  background: var(--surface-strong);
+  background: var(--accent);
+  color: #ffffff;
   font-size: 0.84rem;
   font-weight: 700;
 }
