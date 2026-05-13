@@ -15,4 +15,4 @@ Add an automatic background slideshow showing athletes excelling in different sp
 
 - JavaScript syntax validation passed for `src/app.js` and `src/mock-data.js`.
 - Diff whitespace validation passed with `git diff --check`.
-- Push the change to GitHub and verify `main` sync.
+- Pushed the change to GitHub and verified `main` sync.

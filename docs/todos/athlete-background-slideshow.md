@@ -5,5 +5,5 @@
 - [x] Randomize the transition effect on each switch.
 - [x] Preserve dashboard readability with overlays.
 - [x] Run local quality checks.
-- [ ] Commit and push the slideshow update.
-- [ ] Confirm `main` is synced with GitHub.
+- [x] Commit and push the slideshow update.
+- [x] Confirm `main` is synced with GitHub.
