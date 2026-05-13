@@ -2,8 +2,78 @@ const productGrid = document.getElementById("product-grid");
 const spreadChart = document.getElementById("spread-chart");
 const reactionList = document.getElementById("reaction-list");
 const comparisonBody = document.getElementById("comparison-body");
+const backdropFrames = [
+  document.querySelector(".athlete-frame-a"),
+  document.querySelector(".athlete-frame-b"),
+];
+
+const athleteBackgrounds = [
+  "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1800&q=80",
+  "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1800&q=80",
+  "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1800&q=80",
+  "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1800&q=80",
+  "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1800&q=80",
+  "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1800&q=80",
+];
+
+const backdropEffects = [
+  "effect-slide-left",
+  "effect-slide-right",
+  "effect-zoom",
+  "effect-tilt",
+  "effect-wipe",
+  "effect-blur",
+];
 
 const formatPrice = (value) => `EUR ${value}`;
+
+const pickDifferentIndex = (currentIndex, itemCount) => {
+  let nextIndex = Math.floor(Math.random() * itemCount);
+  if (itemCount > 1) {
+    while (nextIndex === currentIndex) {
+      nextIndex = Math.floor(Math.random() * itemCount);
+    }
+  }
+  return nextIndex;
+};
+
+const clearBackdropEffects = (frame) => {
+  backdropEffects.forEach((effect) => frame.classList.remove(effect));
+};
+
+const startAthleteBackdrop = () => {
+  if (backdropFrames.some((frame) => !frame)) {
+    return;
+  }
+
+  let activeFrameIndex = 0;
+  let activeImageIndex = 0;
+  const initialFrame = backdropFrames[activeFrameIndex];
+  initialFrame.style.backgroundImage = `url("${athleteBackgrounds[activeImageIndex]}")`;
+
+  setInterval(() => {
+    const nextFrameIndex = activeFrameIndex === 0 ? 1 : 0;
+    const nextFrame = backdropFrames[nextFrameIndex];
+    const currentFrame = backdropFrames[activeFrameIndex];
+    const nextImageIndex = pickDifferentIndex(activeImageIndex, athleteBackgrounds.length);
+    const nextEffect = backdropEffects[Math.floor(Math.random() * backdropEffects.length)];
+
+    clearBackdropEffects(nextFrame);
+    nextFrame.classList.add(nextEffect);
+    nextFrame.style.backgroundImage = `url("${athleteBackgrounds[nextImageIndex]}")`;
+
+    requestAnimationFrame(() => {
+      nextFrame.classList.add("is-active");
+      currentFrame.classList.remove("is-active");
+      clearBackdropEffects(currentFrame);
+    });
+
+    activeFrameIndex = nextFrameIndex;
+    activeImageIndex = nextImageIndex;
+  }, 5200);
+};
+
+startAthleteBackdrop();
 
 const withComputedMetrics = trackerData.products.map((product) => {
   const prices = product.offers.map((offer) => offer.price);

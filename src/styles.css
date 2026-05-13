@@ -18,13 +18,81 @@
 body {
   margin: 0;
   font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  background:
-    linear-gradient(115deg, transparent 0 56%, rgba(13, 13, 13, 0.08) 56% 58%, transparent 58% 62%, rgba(13, 13, 13, 0.08) 62% 64%, transparent 64% 68%, rgba(13, 13, 13, 0.08) 68% 70%, transparent 70%),
-    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  background: var(--bg);
   color: var(--ink);
 }
 
+.athlete-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0d0d0d;
+  pointer-events: none;
+}
+
+.athlete-frame,
+.athlete-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.athlete-frame {
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1200ms ease,
+    transform 1200ms ease,
+    filter 1200ms ease,
+    clip-path 1200ms ease;
+  will-change: opacity, transform, filter, clip-path;
+}
+
+.athlete-frame.effect-slide-left {
+  transform: translateX(-7%) scale(1.05);
+}
+
+.athlete-frame.effect-slide-right {
+  transform: translateX(7%) scale(1.05);
+}
+
+.athlete-frame.effect-zoom {
+  transform: scale(1.18);
+}
+
+.athlete-frame.effect-tilt {
+  transform: rotate(-2deg) scale(1.12);
+}
+
+.athlete-frame.effect-wipe {
+  clip-path: inset(0 100% 0 0);
+}
+
+.athlete-frame.effect-blur {
+  filter: blur(10px) saturate(0.7);
+}
+
+.athlete-frame.is-active {
+  opacity: 1;
+  transform: scale(1);
+  filter: saturate(1.04) contrast(1.02);
+  clip-path: inset(0);
+}
+
+.athlete-shade {
+  z-index: 1;
+  background:
+    linear-gradient(115deg, transparent 0 56%, rgba(255, 255, 255, 0.18) 56% 58%, transparent 58% 62%, rgba(255, 255, 255, 0.18) 62% 64%, transparent 64% 68%, rgba(255, 255, 255, 0.18) 68% 70%, transparent 70%),
+    linear-gradient(90deg, rgba(13, 13, 13, 0.82) 0%, rgba(13, 13, 13, 0.56) 42%, rgba(13, 13, 13, 0.76) 100%),
+    linear-gradient(180deg, rgba(13, 13, 13, 0.12) 0%, rgba(242, 242, 240, 0.92) 72%, rgba(242, 242, 240, 0.98) 100%);
+  pointer-events: none;
+}
+
 .app {
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
   padding: 48px 20px 64px;
@@ -413,6 +481,11 @@ td a {
 @media (max-width: 760px) {
   .app {
     padding: 28px 16px 40px;
+  }
+
+  .athlete-shade {
+    background:
+      linear-gradient(180deg, rgba(13, 13, 13, 0.72) 0%, rgba(13, 13, 13, 0.58) 34%, rgba(242, 242, 240, 0.96) 78%, rgba(242, 242, 240, 1) 100%);
   }
 
   .hero,
